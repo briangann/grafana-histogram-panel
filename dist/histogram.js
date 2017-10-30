@@ -1,6 +1,8 @@
 'use strict';
 
 System.register(['angular', 'jquery', 'moment', 'lodash', 'app/core/utils/kbn', './histogram_tooltip.js', 'jquery.flot', 'jquery.flot.selection', 'jquery.flot.time', 'jquery.flot.stack', 'jquery.flot.stackpercent', 'jquery.flot.fillbelow', 'jquery.flot.crosshair', 'app/plugins/panel/graph/jquery.flot.events'], function (_export, _context) {
+  "use strict";
+
   var angular, $, moment, _, kbn, HistogramTooltip;
 
   return {
@@ -162,7 +164,7 @@ System.register(['angular', 'jquery', 'moment', 'lodash', 'app/core/utils/kbn', 
               }
             }
 
-            function getHistogramPairs(series, fillStyle, bucketSize, minValue, maxValue) {
+            function getHistogramPairs(series, fillStyle, bucketSize, minValue, maxValue, normalize) {
               if (bucketSize === null || bucketSize <= 0) {
                 bucketSize = 1;
               }
@@ -220,6 +222,11 @@ System.register(['angular', 'jquery', 'moment', 'lodash', 'app/core/utils/kbn', 
               var result = _.sortBy(values, function (x) {
                 return x[0];
               });
+              if (normalize) {
+                result = _.map(values, function (x) {
+                  return [x[0], x[1] / series.stats.total];
+                });
+              }
               series.stats.timeStep = bucketSize;
               if (series.stats.max === Number.MIN_VALUE) {
                 series.stats.max = null;
@@ -299,7 +306,7 @@ System.register(['angular', 'jquery', 'moment', 'lodash', 'app/core/utils/kbn', 
 
               for (var i = 0; i < data.length; i++) {
                 var series = data[i];
-                series.data = getHistogramPairs(series, series.nullPointMode || panel.nullPointMode, bucketSize || 1, minValue, maxValue);
+                series.data = getHistogramPairs(series, series.nullPointMode || panel.nullPointMode, bucketSize || 1, minValue, maxValue, panel.normalize);
 
                 // if hidden remove points and disable stack
                 if (ctrl.hiddenSeries[series.alias]) {

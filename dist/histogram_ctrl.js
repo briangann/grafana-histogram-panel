@@ -1,6 +1,8 @@
 'use strict';
 
-System.register(['app/plugins/panel/graph/legend', 'app/plugins/panel/graph/series_overrides_ctrl', './template', 'angular', 'moment', 'app/core/utils/kbn', 'lodash', 'app/core/time_series2', 'app/core/utils/file_export', 'app/plugins/sdk'], function (_export, _context) {
+System.register(['./lib/legend', './lib/series_overrides_ctrl', './template', 'angular', 'moment', 'app/core/utils/kbn', 'lodash', 'app/core/time_series2', 'app/core/utils/file_export', 'app/plugins/sdk'], function (_export, _context) {
+  "use strict";
+
   var template, angular, moment, kbn, _, TimeSeries, fileExport, MetricsPanelCtrl, _createClass, _get, HistogramCtrl;
 
   function _classCallCheck(instance, Constructor) {
@@ -34,7 +36,7 @@ System.register(['app/plugins/panel/graph/legend', 'app/plugins/panel/graph/seri
   }
 
   return {
-    setters: [function (_appPluginsPanelGraphLegend) {}, function (_appPluginsPanelGraphSeries_overrides_ctrl) {}, function (_template) {
+    setters: [function (_libLegend) {}, function (_libSeries_overrides_ctrl) {}, function (_template) {
       template = _template.default;
     }, function (_angular) {
       angular = _angular.default;
@@ -99,11 +101,10 @@ System.register(['app/plugins/panel/graph/legend', 'app/plugins/panel/graph/seri
         _inherits(HistogramCtrl, _MetricsPanelCtrl);
 
         /** @ngInject */
-
         function HistogramCtrl($scope, $injector, annotationsSrv) {
           _classCallCheck(this, HistogramCtrl);
 
-          var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HistogramCtrl).call(this, $scope, $injector));
+          var _this = _possibleConstructorReturn(this, (HistogramCtrl.__proto__ || Object.getPrototypeOf(HistogramCtrl)).call(this, $scope, $injector));
 
           _this.annotationsSrv = annotationsSrv;
           _this.hiddenSeries = {};
@@ -242,7 +243,7 @@ System.register(['app/plugins/panel/graph/legend', 'app/plugins/panel/graph/seri
               panel: this.panel,
               range: this.range
             });
-            return _get(Object.getPrototypeOf(HistogramCtrl.prototype), 'issueQueries', this).call(this, datasource);
+            return _get(HistogramCtrl.prototype.__proto__ || Object.getPrototypeOf(HistogramCtrl.prototype), 'issueQueries', this).call(this, datasource);
           }
         }, {
           key: 'zoomOut',
