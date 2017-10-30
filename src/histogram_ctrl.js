@@ -1,5 +1,5 @@
-import 'app/plugins/panel/graph/legend';
-import 'app/plugins/panel/graph/series_overrides_ctrl';
+import './lib/legend';
+import './lib/series_overrides_ctrl';
 
 import template from './template';
 import angular from 'angular';
