@@ -11,7 +11,7 @@ import 'jquery.flot.stack';
 import 'jquery.flot.stackpercent';
 import 'jquery.flot.fillbelow';
 import 'jquery.flot.crosshair';
-import 'app/plugins/panel/graph/jquery.flot.events';
+import './lib/jquery.flot.events';
 
 angular.module('grafana.directives').directive('grafanaHistogram', function($rootScope, timeSrv) {
   return {
