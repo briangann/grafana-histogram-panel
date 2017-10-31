@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['angular', 'jquery', 'moment', 'lodash', 'app/core/utils/kbn', './histogram_tooltip.js', 'jquery.flot', 'jquery.flot.selection', 'jquery.flot.time', 'jquery.flot.stack', 'jquery.flot.stackpercent', 'jquery.flot.fillbelow', 'jquery.flot.crosshair', './lib/jquery.flot.events'], function (_export, _context) {
+System.register(['angular', 'jquery', 'moment', 'lodash', 'app/core/utils/kbn', './histogram_tooltip.js', 'jquery.flot', 'jquery.flot.selection', 'jquery.flot.time', 'jquery.flot.stack', 'jquery.flot.stackpercent', 'jquery.flot.fillbelow', 'jquery.flot.crosshair', 'vendor/npm/tether-drop', './lib/jquery.flot.events'], function (_export, _context) {
   "use strict";
 
   var angular, $, moment, _, kbn, HistogramTooltip;
@@ -18,7 +18,7 @@ System.register(['angular', 'jquery', 'moment', 'lodash', 'app/core/utils/kbn', 
       kbn = _appCoreUtilsKbn.default;
     }, function (_histogram_tooltipJs) {
       HistogramTooltip = _histogram_tooltipJs.default;
-    }, function (_jqueryFlot) {}, function (_jqueryFlotSelection) {}, function (_jqueryFlotTime) {}, function (_jqueryFlotStack) {}, function (_jqueryFlotStackpercent) {}, function (_jqueryFlotFillbelow) {}, function (_jqueryFlotCrosshair) {}, function (_libJqueryFlotEvents) {}],
+    }, function (_jqueryFlot) {}, function (_jqueryFlotSelection) {}, function (_jqueryFlotTime) {}, function (_jqueryFlotStack) {}, function (_jqueryFlotStackpercent) {}, function (_jqueryFlotFillbelow) {}, function (_jqueryFlotCrosshair) {}, function (_vendorNpmTetherDrop) {}, function (_libJqueryFlotEvents) {}],
     execute: function () {
 
       angular.module('grafana.directives').directive('grafanaHistogram', function ($rootScope, timeSrv) {

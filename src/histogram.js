@@ -11,6 +11,7 @@ import 'jquery.flot.stack';
 import 'jquery.flot.stackpercent';
 import 'jquery.flot.fillbelow';
 import 'jquery.flot.crosshair';
+import 'vendor/npm/tether-drop';
 import './lib/jquery.flot.events';
 
 angular.module('grafana.directives').directive('grafanaHistogram', function($rootScope, timeSrv) {
